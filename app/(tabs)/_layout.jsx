@@ -3,28 +3,35 @@ import React from "react";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { SlideInDown } from "react-native-reanimated";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Stack
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
+        animation:'slide_from_right'
+
       }}
+      initialRouteName="profilephoto"
     >
       <Stack.Screen
         name="index"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon
-              name={focused ? "home" : "home-outline"}
-              color={color}
-            />
-          ),
+          
         }}
+      />
+      <Stack.Screen
+        name="signup"
+        options={{
+          title: "SignIn",
+        }
+        
+      }
+      />
+      <Stack.Screen 
+      name="profilephoto"
       />
     </Stack>
   );

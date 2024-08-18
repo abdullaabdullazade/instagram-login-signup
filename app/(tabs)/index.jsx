@@ -1,70 +1,193 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ActivityIndicator,
+} from "react-native";
+import React, { useState, useEffect } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  GestureHandlerRootView,
+  TextInput,
+} from "react-native-gesture-handler";
+import { router } from "expo-router";
+const index = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+  const handleLoginPress = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+  /*
+   <TouchableOpacity>
+          <AntDesign
+            name="left"
+            size={24}
+            color="white"
+            style={{ marginLeft: 10, marginTop: 10 }}
+          />
+        </TouchableOpacity>
+  */
 
-export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+    <GestureHandlerRootView>
+      <SafeAreaView style={{ flex: 1 }}>
+          <Text
+            style={{
+              color: "white",
+              fontFamily: "Billabong",
+              textAlign: "center",
+              fontSize: 36,
+              marginTop: "40%",
+            }}
+          >
+            Instagram
+          </Text>
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+          <View style={{ padding: 10, paddingBottom: 0 }}>
+            <TextInput
+              style={{
+                height: 45,
+                color: "white",
+                borderWidth: 1,
+                margin: 10,
+                borderRadius: 7,
+                paddingLeft: 20,
+                backgroundColor: "rgb(53, 57, 53)",
+                fontFamily: "mon-sb",
+              }}
+              placeholder="Username"
+              placeholderTextColor="gray"
+              onChangeText={(username) => setUsername(username)}
+              defaultValue={username}
+            />
+            <TextInput
+              style={{
+                height: 45,
+                color: "white",
+                borderWidth: 1,
+                margin: 10,
+                borderRadius: 7,
+                paddingLeft: 20,
+                backgroundColor: "rgb(53, 57, 53)",
+                fontFamily: "mon-sb",
+              }}
+              placeholder="Password"
+              placeholderTextColor="gray"
+              onChangeText={(password) => setPassword(password)}
+              defaultValue={password}
+            />
+            <TouchableOpacity>
+              <Text
+                style={{
+                  color: "rgb(135, 206, 235)",
+                  alignSelf: "flex-end",
+                  paddingRight: 10,
+                  fontFamily: "mon-sb",
+                }}
+              >
+                Forget Password?
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ marginTop: "5%", padding: 20 }}>
+            <TouchableOpacity
+              style={{
+                marginTop: "100px",
+                borderWidth: 1,
+                borderColor: "rgb(135, 206, 235)",
+                height: 45,
+                borderRadius: 5,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "rgb(135, 206, 235)",
+              }}
+              onPress={handleLoginPress}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator size="small" color="white" />
+              ) : (
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: "mon-sb",
+                    textAlign: "center",
+                  }}
+                >
+                  Log in
+                </Text>
+              )}
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 20,
+              paddingHorizontal: 20,
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                borderBottomColor: "grey",
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+            <Text
+              style={{
+                fontFamily: "mon-sb",
+                color: "grey",
+                marginHorizontal: 10,
+              }}
+            >
+              OR
+            </Text>
+            <View
+              style={{
+                flex: 1,
+                borderBottomColor: "grey",
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: 30,
+              paddingHorizontal: 20,
+            }}
+          >
+            <Text
+              style={{
+                color: "grey",
+                marginTop: 30,
+              }}
+            >
+              Don't have an account?{" "}
+              <TouchableOpacity
+                onPress={() => {
+                  router.push("/signup");
+                }}
+              >
+                <Text
+                  style={{ color: "rgb(135, 206, 235)", textAlign: "center" }}
+                >
+                  Sign up.
+                </Text>
+              </TouchableOpacity>
+            </Text>
+          </View>
+      </SafeAreaView>
+    </GestureHandlerRootView>
+  );
+};
+
+export default index;
