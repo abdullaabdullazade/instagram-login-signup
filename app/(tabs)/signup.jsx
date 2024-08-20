@@ -12,7 +12,7 @@ import {
 } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import {  database } from "./firebase";
+import { database } from "./firebase";
 import Toast from "react-native-toast-message";
 import PhoneInput from "react-native-phone-input";
 import { ref, get, set } from "firebase/database";

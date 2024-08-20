@@ -1,35 +1,44 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as ImagePicker from "expo-image-picker";
 import { ref } from "firebase/storage";
 import { storage } from "./firebase";
 import { uploadBytes, getDownloadURL } from "firebase/storage";
-const SelectProfilePhoto = () => {
-  const {username} = useLocalSearchParams();
-  const [selectedImage, setSelectedImage] = useState(null);
-  
-const continueProgress = async () => {
-  if (selectedImage) {
-    const fileUri = selectedImage;
-    const response = await fetch(fileUri);
-    const blob = await response.blob();
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as FileSystem from "expo-file-system"; // Yeni əlavə
 
-    const fileName = `${username}-profile.jpg`;
+const SelectProfilePhoto = () => {
+  const { username } = useLocalSearchParams();
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const continueProgress = async () => {
+    let fileName;
+    let blob;
+
+    if (selectedImage) {
+      const fileUri = selectedImage;
+      const response = await fetch(fileUri);
+      blob = await response.blob();
+      fileName = `${username}.jpg`;
+    }
+
     const storageRef = ref(storage, `profile_photos/${fileName}`);
 
     uploadBytes(storageRef, blob)
       .then(async (snapshot) => {
         const downloadURL = await getDownloadURL(snapshot.ref);
         console.log("Şəkil uğurla yükləndi:", downloadURL);
+        router.push({ pathname: "/mainPage", params: { username: downloadURL } });
+        await AsyncStorage.setItem("username", username);
       })
       .catch((error) => {
         console.error("Şəkil yüklənərkən xəta baş verdi:", error);
       });
-  }
-};
+  };
+
   const pickImage = async () => {
     let result = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -125,6 +134,7 @@ const continueProgress = async () => {
           justifyContent: "center",
           alignItems: "center",
         }}
+        onPress={continueProgress}
       >
         <Text style={{ color: "rgb(135, 206, 235)" }}>Skip</Text>
       </TouchableOpacity>
