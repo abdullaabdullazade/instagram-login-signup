@@ -42,7 +42,7 @@ const index = () => {
 
   useFocusEffect(
     useCallback(() => {
-      AsyncStorage.removeItem("username");
+     // AsyncStorage.removeItem("username");
       fetchUsername();
     }, [])
   );
@@ -123,7 +123,9 @@ const index = () => {
             onChangeText={(password) => setPassword(password)}
             defaultValue={password}
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>{
+            router.push({pathname:'/forgetpassword',params:{username:username}})
+          }}>
             <Text
               style={{
                 color: "rgb(135, 206, 235)",
@@ -131,6 +133,7 @@ const index = () => {
                 paddingRight: 10,
                 fontFamily: "mon-sb",
               }}
+
             >
               Forget Password?
             </Text>
