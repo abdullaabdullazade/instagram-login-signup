@@ -27,7 +27,7 @@ const forgetpassword = () => {
           email: email_,
         }
       );
-
+      console.log(response.data)
       Toast.show({
         type: "success",
         text1: "Link send successfully!",

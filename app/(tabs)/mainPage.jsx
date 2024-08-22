@@ -1,8 +1,8 @@
 import { View, Text, Image } from "react-native";
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { storage } from "./firebase"; 
-import { ref, getDownloadURL } from "firebase/storage"; 
+import { storage } from "./firebase";
+import { ref, getDownloadURL } from "firebase/storage";
 import { useLocalSearchParams } from "expo-router";
 
 const MainPage = () => {
@@ -37,13 +37,13 @@ const MainPage = () => {
           alignItems: "center",
           justifyContent: "center",
           flex: 1,
-          backgroundColor: 'white',
+          backgroundColor: "white",
         }}
       >
         {imageUrl ? (
           <Image
             source={typeof imageUrl === "string" ? { uri: imageUrl } : imageUrl}
-            style={{ width: 200, height: 200 }}
+            style={{ width: 80, height: 80, borderRadius: 40 }}
           />
         ) : (
           <Text>Loading...</Text>

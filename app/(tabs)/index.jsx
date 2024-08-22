@@ -9,6 +9,7 @@ import React, { useState, useCallback } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   GestureHandlerRootView,
+  ScrollView,
   TextInput,
 } from "react-native-gesture-handler";
 import { router, useFocusEffect } from "expo-router";
@@ -23,13 +24,12 @@ const index = () => {
 
   const handleLoginPress = async () => {
     setLoading(true);
-    await logIn(); 
+    await logIn();
     setLoading(false);
   };
 
   const fetchUsername = async () => {
     let jsonValue = await AsyncStorage.getItem("username");
-    console.log(jsonValue);
     if (jsonValue !== null) {
       console.log(jsonValue);
       jsonValue += ".jpg";
@@ -42,7 +42,7 @@ const index = () => {
 
   useFocusEffect(
     useCallback(() => {
-     // AsyncStorage.removeItem("username");
+      // AsyncStorage.removeItem("username");
       fetchUsername();
     }, [])
   );
@@ -78,158 +78,164 @@ const index = () => {
   return (
     <GestureHandlerRootView>
       <SafeAreaView style={{ flex: 1 }}>
-        <Text
-          style={{
-            color: "white",
-            fontFamily: "Billabong",
-            textAlign: "center",
-            fontSize: 36,
-            marginTop: "40%",
-          }}
-        >
-          Instagram
-        </Text>
+        <ScrollView>
+          <Text
+            style={{
+              color: "white",
+              fontFamily: "Billabong",
+              textAlign: "center",
+              fontSize: 36,
+              marginTop: "40%",
+            }}
+          >
+            Instagram
+          </Text>
 
-        <View style={{ padding: 10, paddingBottom: 0 }}>
-          <TextInput
-            style={{
-              height: 45,
-              color: "white",
-              borderWidth: 1,
-              margin: 10,
-              borderRadius: 7,
-              paddingLeft: 20,
-              backgroundColor: "rgb(53, 57, 53)",
-              fontFamily: "mon-sb",
-            }}
-            placeholder="Username"
-            placeholderTextColor="gray"
-            onChangeText={(username) => setUsername(username)}
-            defaultValue={username}
-          />
-          <TextInput
-            style={{
-              height: 45,
-              color: "white",
-              borderWidth: 1,
-              margin: 10,
-              borderRadius: 7,
-              paddingLeft: 20,
-              backgroundColor: "rgb(53, 57, 53)",
-              fontFamily: "mon-sb",
-            }}
-            placeholder="Password"
-            placeholderTextColor="gray"
-            onChangeText={(password) => setPassword(password)}
-            defaultValue={password}
-          />
-          <TouchableOpacity onPress={()=>{
-            router.push({pathname:'/forgetpassword',params:{username:username}})
-          }}>
-            <Text
+          <View style={{ padding: 10, paddingBottom: 0 }}>
+            <TextInput
               style={{
-                color: "rgb(135, 206, 235)",
-                alignSelf: "flex-end",
-                paddingRight: 10,
+                height: 45,
+                color: "white",
+                borderWidth: 1,
+                margin: 10,
+                borderRadius: 7,
+                paddingLeft: 20,
+                backgroundColor: "rgb(53, 57, 53)",
                 fontFamily: "mon-sb",
               }}
-
-            >
-              Forget Password?
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ marginTop: "5%", padding: 20 }}>
-          <TouchableOpacity
-            style={{
-              marginTop: "100px",
-              borderWidth: 1,
-              borderColor: "rgb(135, 206, 235)",
-              height: 45,
-              borderRadius: 5,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "rgb(135, 206, 235)",
-            }}
-            onPress={handleLoginPress}
-            disabled={loading}
-          >
-            {loading ? (
-              <ActivityIndicator size="small" color="white" />
-            ) : (
-              <Text
-                style={{
-                  color: "white",
-                  fontFamily: "mon-sb",
-                  textAlign: "center",
-                }}
-              >
-                Log in
-              </Text>
-            )}
-          </TouchableOpacity>
-        </View>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            marginTop: 20,
-            paddingHorizontal: 20,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              borderBottomColor: "grey",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-            }}
-          />
-          <Text
-            style={{
-              fontFamily: "mon-sb",
-              color: "grey",
-              marginHorizontal: 10,
-            }}
-          >
-            OR
-          </Text>
-          <View
-            style={{
-              flex: 1,
-              borderBottomColor: "grey",
-              borderBottomWidth: StyleSheet.hairlineWidth,
-            }}
-          />
-        </View>
-        <View
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: 30,
-            paddingHorizontal: 20,
-          }}
-        >
-          <Text
-            style={{
-              color: "grey",
-              marginTop: 30,
-            }}
-          >
-            Don't have an account?{" "}
+              placeholder="Username"
+              placeholderTextColor="gray"
+              onChangeText={(username) => setUsername(username)}
+              defaultValue={username}
+            />
+            <TextInput
+              style={{
+                height: 45,
+                color: "white",
+                borderWidth: 1,
+                margin: 10,
+                borderRadius: 7,
+                paddingLeft: 20,
+                backgroundColor: "rgb(53, 57, 53)",
+                fontFamily: "mon-sb",
+              }}
+              placeholder="Password"
+              placeholderTextColor="gray"
+              onChangeText={(password) => setPassword(password)}
+              defaultValue={password}
+            />
             <TouchableOpacity
               onPress={() => {
-                router.push("/signup");
+                router.push({
+                  pathname: "/forgetpassword",
+                  params: { username: username },
+                });
               }}
             >
               <Text
-                style={{ color: "rgb(135, 206, 235)", textAlign: "center" }}
+                style={{
+                  color: "rgb(135, 206, 235)",
+                  alignSelf: "flex-end",
+                  paddingRight: 10,
+                  fontFamily: "mon-sb",
+                }}
               >
-                Sign up.
+                Forget Password?
               </Text>
             </TouchableOpacity>
-          </Text>
-        </View>
-        <Toast />
+          </View>
+          <View style={{ marginTop: "5%", padding: 20 }}>
+            <TouchableOpacity
+              style={{
+                marginTop: "100px",
+                borderWidth: 1,
+                borderColor: "rgb(135, 206, 235)",
+                height: 45,
+                borderRadius: 5,
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "rgb(135, 206, 235)",
+              }}
+              onPress={handleLoginPress}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator size="small" color="white" />
+              ) : (
+                <Text
+                  style={{
+                    color: "white",
+                    fontFamily: "mon-sb",
+                    textAlign: "center",
+                  }}
+                >
+                  Log in
+                </Text>
+              )}
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              marginTop: 20,
+              paddingHorizontal: 20,
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                borderBottomColor: "grey",
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+            <Text
+              style={{
+                fontFamily: "mon-sb",
+                color: "grey",
+                marginHorizontal: 10,
+              }}
+            >
+              OR
+            </Text>
+            <View
+              style={{
+                flex: 1,
+                borderBottomColor: "grey",
+                borderBottomWidth: StyleSheet.hairlineWidth,
+              }}
+            />
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              marginTop: 30,
+              paddingHorizontal: 20,
+            }}
+          >
+            <Text
+              style={{
+                color: "grey",
+                marginTop: 30,
+              }}
+            >
+              Don't have an account?{" "}
+              <TouchableOpacity
+                onPress={() => {
+                  router.push("/signup");
+                }}
+              >
+                <Text
+                  style={{ color: "rgb(135, 206, 235)", textAlign: "center" }}
+                >
+                  Sign up.
+                </Text>
+              </TouchableOpacity>
+            </Text>
+          </View>
+          <Toast />
+        </ScrollView>
       </SafeAreaView>
     </GestureHandlerRootView>
   );

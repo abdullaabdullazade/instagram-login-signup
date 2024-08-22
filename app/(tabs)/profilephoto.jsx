@@ -31,7 +31,10 @@ const SelectProfilePhoto = () => {
       .then(async (snapshot) => {
         const downloadURL = await getDownloadURL(snapshot.ref);
         console.log("Şəkil uğurla yükləndi:", downloadURL);
-        router.push({ pathname: "/mainPage", params: { username: downloadURL } });
+        router.push({
+          pathname: "/mainPage",
+          params: { username: downloadURL },
+        });
         await AsyncStorage.setItem("username", username);
       })
       .catch((error) => {
