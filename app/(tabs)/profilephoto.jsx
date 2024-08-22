@@ -32,7 +32,7 @@ const SelectProfilePhoto = () => {
         const downloadURL = await getDownloadURL(snapshot.ref);
         console.log("Şəkil uğurla yükləndi:", downloadURL);
         router.push({
-          pathname: "/mainPage",
+          pathname: "/profile",
           params: { username: downloadURL },
         });
         await AsyncStorage.setItem("username", username);

@@ -21,7 +21,7 @@ export default function TabLayout() {
         }}
       />
       <Stack.Screen name="profilephoto" />
-      <Stack.Screen name="mainPage" />
+      <Stack.Screen name="profile" />
       <Stack.Screen name="forgetpassword" />
     </Stack>
   );

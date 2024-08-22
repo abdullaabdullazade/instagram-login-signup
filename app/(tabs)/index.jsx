@@ -62,7 +62,7 @@ const index = () => {
             text1: "You are welcome!",
           });
           router.replace({
-            pathname: "/mainPage",
+            pathname: "/profile",
             params: { username: username + ".jpg" },
           });
         } else {
