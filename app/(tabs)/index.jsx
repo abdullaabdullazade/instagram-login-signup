@@ -34,7 +34,7 @@ const index = () => {
       console.log(jsonValue);
       jsonValue += ".jpg";
       router.replace({
-        pathname: "/mainPage",
+        pathname: "/profile",
         params: { username: jsonValue },
       });
     }

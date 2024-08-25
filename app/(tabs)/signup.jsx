@@ -105,6 +105,9 @@ const Signup = () => {
         phoneNumber: phoneNumber,
         age: date.toLocaleDateString(),
         password: password,
+        posts: 0,
+        followers: 0,
+        following: 0,
       });
       router.push({ pathname: "profilephoto", params: { username: username } });
     }
