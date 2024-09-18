@@ -1,51 +1,94 @@
-# Welcome to your Expo app 👋
+📸 Instagram Login və Qeydiyyat Səhifəsi
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Bu layihə, React Native Expo-da Instagram üçün login və qeydiyyat səhifəsinin hazırlanması məqsədi daşıyır. Layihənin məqsədi istifadəçilərə Instagram tərzi bir giriş və qeydiyyat təcrübəsi təqdim etməkdir.
 
-## Get started
+✨ Funksionallıqlar
 
-1. Install dependencies
+🔑 İstifadəçinin giriş (login) səhifəsinə daxil olması
 
-   ```bash
-   npm install
-   ```
+🆕 Yeni istifadəçi yaradılması (qeydiyyat)
 
-2. Start the app
+✅ İstifadəçi adı və şifrənin yoxlanılması
 
-   ```bash
-    npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+🚀 Quraşdırma (Azərbaycan dili)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1. Layihəni klonlayın:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+git clone https://github.com/abdullaabdullazade/instagram-login-signup.git
+cd instagram-login-signup
 
-## Get a fresh project
 
-When you're ready, run:
+2. Lazımi paketləri quraşdırın:
 
-```bash
-npm run reset-project
-```
+npm install
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+3. Layihəni işə salın:
 
-To learn more about developing your project with Expo, look at the following resources:
+npx expo start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+4. 📱 Mobil qurğuda "Expo Go" tətbiqi vasitəsilə layihəni sınaqdan keçirin.
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-"# InstagramClone" 
+
+📖 İstifadə qaydaları
+
+Layihəni işə saldıqdan sonra, giriş və ya qeydiyyat səhifəsinə keçid edə bilərsiniz.
+
+📝 Qeydiyyat üçün istifadəçi adı, e-poçt və şifrə tələb olunur.
+
+🔓 Giriş üçün qeydiyyatdan keçdiyiniz istifadəçi adını və şifrənizi daxil edin.
+
+
+
+---
+
+📸 Instagram Login and Signup Page
+
+This project is a simple Instagram-style login and signup page developed in React Native Expo. It aims to provide users with a basic experience similar to Instagram's login and registration process.
+
+✨ Features
+
+🔑 User login page
+
+🆕 New user registration
+
+✅ Username and password validation
+
+
+🚀 Installation (English)
+
+1. Clone the repository:
+
+git clone https://github.com/abdullaabdullazade/instagram-login-signup.git
+cd instagram-login-signup
+
+
+2. Install the necessary packages:
+
+npm install
+
+
+3. Run the project:
+
+npx expo start
+
+
+4. 📱 Test the app using the "Expo Go" app on your mobile device.
+
+
+
+📖 Usage
+
+After running the project, navigate to the login or signup page.
+
+📝 For registration, you need to provide a username, email, and password.
+
+🔓 For login, use the username and password you registered with.
+
+
+
+
+
