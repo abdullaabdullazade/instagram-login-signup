@@ -27,13 +27,11 @@ const forgetpassword = () => {
           email: email_,
         }
       );
-      console.log(response.data)
       Toast.show({
         type: "success",
         text1: "Link send successfully!",
       });
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
       Toast.show({
         type: "error",
         text1: "Failed to send link.",

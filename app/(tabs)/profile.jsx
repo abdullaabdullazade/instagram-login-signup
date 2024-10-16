@@ -24,18 +24,12 @@ const MainPage = () => {
         ); //First we detect path
 
         const snapshot = await get(starCountRef); //then we take path and we check it exitxs
-        if (snapshot.exists()) {
-          const data = snapshot.val();
-          console.log(data);
-          setPosts(data.posts || 0);
-          setfollowers(data.followers || 0);
-          setfollowering(data.following || 0);
-          setName(data.fullName || "");
-        } else {
-          console.log("No data available");
-        }
-      } catch (error) {
-        console.error("Error fetching data: ", error);
+        const data = snapshot.val();
+        setPosts(data.posts || 0);
+        setfollowers(data.followers || 0);
+        setfollowering(data.following || 0);
+        setName(data.fullName || "");
+      } catch (e) {
       }
     }
 

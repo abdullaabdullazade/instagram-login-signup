@@ -30,16 +30,13 @@ const SelectProfilePhoto = () => {
     uploadBytes(storageRef, blob)
       .then(async (snapshot) => {
         const downloadURL = await getDownloadURL(snapshot.ref);
-        console.log("Şəkil uğurla yükləndi:", downloadURL);
         router.push({
           pathname: "/profile",
           params: { username: downloadURL },
         });
         await AsyncStorage.setItem("username", username);
       })
-      .catch((error) => {
-        console.error("Şəkil yüklənərkən xəta baş verdi:", error);
-      });
+      
   };
 
   const pickImage = async () => {

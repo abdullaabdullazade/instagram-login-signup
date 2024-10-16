@@ -31,7 +31,6 @@ const index = () => {
   const fetchUsername = async () => {
     let jsonValue = await AsyncStorage.getItem("username");
     if (jsonValue !== null) {
-      console.log(jsonValue);
       jsonValue += ".jpg";
       router.replace({
         pathname: "/profile",
@@ -41,7 +40,7 @@ const index = () => {
   };
 
   useFocusEffect(
-    useCallback(() => {
+    useCallback(() => { 
       // AsyncStorage.removeItem("username");
       fetchUsername();
     }, [])
@@ -53,7 +52,7 @@ const index = () => {
       if (snapshot.exists()) {
         const data = snapshot.val();
         /*
-        Daha təhlükəsiz olsun deyə ? qoyaraq istifadə edirik
+  
         */
         if (data[username]?.password == password) {
           AsyncStorage.setItem("username", username);

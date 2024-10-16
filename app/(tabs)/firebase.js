@@ -10,3 +10,6 @@ const firebase = initializeApp(firebaseConfig);
 const database = getDatabase(firebase);
 const storage = getStorage(firebase);
 export { database, firebase, storage };
+
+
+

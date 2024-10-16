@@ -85,7 +85,6 @@ const Signup = () => {
         text2: "Please enter a valid phone number.",
       });
     } else if (password.length < 6) {
-      console.log(password.length);
       Toast.show({
         type: "error",
         text1: "Password error",
