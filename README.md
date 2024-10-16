@@ -1,94 +1,170 @@
-📸 Instagram Login və Qeydiyyat Səhifəsi
 
-Bu layihə, React Native Expo-da Instagram üçün login və qeydiyyat səhifəsinin hazırlanması məqsədi daşıyır. Layihənin məqsədi istifadəçilərə Instagram tərzi bir giriş və qeydiyyat təcrübəsi təqdim etməkdir.
+# 📸 Instagram Login & Signup Clone
 
-✨ Funksionallıqlar
-
-🔑 İstifadəçinin giriş (login) səhifəsinə daxil olması
-
-🆕 Yeni istifadəçi yaradılması (qeydiyyat)
-
-✅ İstifadəçi adı və şifrənin yoxlanılması
+✨ Welcome to **Instagram Login & Signup Clone**! This is a stylish and modern authentication app built with **React Native** and **Expo**. It features a smooth user experience for logging in, signing up, and resetting forgotten passwords — just like Instagram! 🌟
 
 
-🚀 Quraşdırma (Azərbaycan dili)
+## 🌟 Features
 
-1. Layihəni klonlayın:
+- 🚀 **Sign Up**: Create a new account seamlessly!
+- 🔑 **Login**: Secure and quick login experience.
+- 🔄 **Forgot Password**: Reset your password in seconds with a secure backend API.
+- 🎨 **Responsive UI**: Fully responsive design for any screen size.
+- ⚡️ **Expo**: Fast and easy setup for mobile development.
 
-git clone https://github.com/abdullaabdullazade/instagram-login-signup.git
-cd instagram-login-signup
+## 🛠️ Setup Guide
 
+### Prerequisites
 
-2. Lazımi paketləri quraşdırın:
+Before you begin, ensure you have the following installed:
 
-npm install
+- **Node.js** (v14 or above)
+- **Expo CLI** (install via `npm install -g expo-cli`)
+- **React Native** setup on your machine
 
-
-3. Layihəni işə salın:
-
-npx expo start
-
-
-4. 📱 Mobil qurğuda "Expo Go" tətbiqi vasitəsilə layihəni sınaqdan keçirin.
-
-
-
-📖 İstifadə qaydaları
-
-Layihəni işə saldıqdan sonra, giriş və ya qeydiyyat səhifəsinə keçid edə bilərsiniz.
-
-📝 Qeydiyyat üçün istifadəçi adı, e-poçt və şifrə tələb olunur.
-
-🔓 Giriş üçün qeydiyyatdan keçdiyiniz istifadəçi adını və şifrənizi daxil edin.
-
-
-
----
-
-📸 Instagram Login and Signup Page
-
-This project is a simple Instagram-style login and signup page developed in React Native Expo. It aims to provide users with a basic experience similar to Instagram's login and registration process.
-
-✨ Features
-
-🔑 User login page
-
-🆕 New user registration
-
-✅ Username and password validation
-
-
-🚀 Installation (English)
+### 🚀 Getting Started
 
 1. Clone the repository:
 
-git clone https://github.com/abdullaabdullazade/instagram-login-signup.git
+```bash
+git clone https://github.com/abdullaabdullazade/instagram-login-signup
 cd instagram-login-signup
+```
 
+2. Install dependencies:
 
-2. Install the necessary packages:
-
+```bash
 npm install
+```
+
+3. Run the app on your local device or emulator:
+
+```bash
+expo start
+```
+
+🎉 You're all set to start using the app!
+
+## 🔗 Backend API (Reset Password)
+
+To enable password reset functionality, this project connects to a Node.js backend. Make sure to clone and set up the backend server:
+
+### Backend Repository
+
+The reset password backend is available [here](https://github.com/abdullaabdullazade/backendinstagramclone).
+
+### Backend Setup
+
+1. Clone the backend repository:
+
+```bash
+git clone https://github.com/abdullaabdullazade/backendinstagramclone
+cd backendinstagramclone
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the backend server:
+
+```bash
+npm start
+```
+
+💡 You can now access the API at `http://localhost:3000`.
+
+## 📚 Tech Stack
+
+- **Frontend**: React Native, Expo
+- **Backend**: Node.js, Express.js
+- **Database**: Firebase
 
 
-3. Run the project:
+------------------------------------------------------------------
 
-npx expo start
+# 📸 Instagram Giriş və Qeydiyyat Klonu
 
-
-4. 📱 Test the app using the "Expo Go" app on your mobile device.
-
-
-
-📖 Usage
-
-After running the project, navigate to the login or signup page.
-
-📝 For registration, you need to provide a username, email, and password.
-
-🔓 For login, use the username and password you registered with.
+✨ **Instagram Giriş və Qeydiyyat Klonu** layihəsinə xoş gəlmisiniz! Bu layihə **React Native** və **Expo** ilə qurulmuş şık və müasir autentifikasiya tətbiqidir. Burada giriş etmək, qeydiyyatdan keçmək və parolu sıfırlamaq funksiyaları mövcuddur — tam olaraq Instagram kimi! 🌟
 
 
 
+## 🌟 Xüsusiyyətlər
 
+- 🚀 **Qeydiyyat**: Yeni hesabı asanlıqla yaradın!
+- 🔑 **Giriş**: Təhlükəsiz və sürətli giriş təcrübəsi.
+- 🔄 **Parolu Unutdun?**: Parolunuzu saniyələr içində sıfırlayın, təhlükəsiz backend API ilə.
+- 🎨 **Responsiv UI**: Hər ekran ölçüsünə uyğun tam responsiv dizayn.
+- ⚡️ **Expo**: Mobil inkişaf üçün sürətli və asan qurulum.
 
+## 🛠️ Qurulum Təlimatı
+
+### Tələblər
+
+Başlamazdan əvvəl, aşağıdakıların quraşdırıldığından əmin olun:
+
+- **Node.js** (v14 və ya daha yuxarı versiya)
+- **Expo CLI** (install etmək üçün `npm install -g expo-cli`)
+- **React Native** qurulumu
+
+### 🚀 Başlamaq
+
+1. Repozitoriyanı klonlayın:
+
+```bash
+git clone https://github.com/abdullaabdullazade/instagram-login-signup
+cd instagram-login-signup
+```
+
+2. Lazım olan paketləri yükləyin:
+
+```bash
+npm install
+```
+
+3. Tətbiqi yerli cihazda və ya emulatorda başladın:
+
+```bash
+expo start
+```
+
+🎉 Tətbiqdən istifadə etməyə hazırsınız!
+
+## 🔗 Backend API (Parolun Sıfırlanması)
+
+Parolun sıfırlanması funksionallığını təmin etmək üçün bu layihə Node.js backend ilə əlaqələndirilir. Əmin olun ki, backend serverini də klonlayıb qurun:
+
+### Backend Repozitoriyası
+
+Parolun sıfırlanması üçün backend layihəsi [burada](https://github.com/abdullaabdullazade/backendinstagramclone) mövcuddur.
+
+### Backend Qurulumu
+
+1. Backend repozitoriyasını klonlayın:
+
+```bash
+git clone https://github.com/abdullaabdullazade/backendinstagramclone
+cd backendinstagramclone
+```
+
+2. Lazım olan paketləri yükləyin:
+
+```bash
+npm install
+```
+
+3. Backend serverini başladın:
+
+```bash
+npm start
+```
+
+💡 İndi API-yə `http://localhost:3000` ünvanından daxil ola bilərsiniz.
+
+## 📚 Texnologiyalar
+
+- **Frontend**: React Native, Expo
+- **Backend**: Node.js, Express.js
+- **Verilənlər bazası**: Firebase
