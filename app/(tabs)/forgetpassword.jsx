@@ -11,6 +11,18 @@ import { get, ref } from "firebase/database";
 import { database } from "./firebase";
 import Toast from "react-native-toast-message";
 
+
+
+
+const resetPassowdLink = ''
+
+
+
+
+
+
+
+
 const forgetpassword = () => {
   const [userName, setUsername] = useState(useLocalSearchParams()["username"]);
 
@@ -21,7 +33,7 @@ const forgetpassword = () => {
       const email_ = value["email"];
 
       await axios.post(
-        "https://resetpasswordinstagram.vercel.app/resetpassword",
+        resetPassowdLink,
         {
           username: userName,
           email: email_,
