@@ -20,7 +20,7 @@ const forgetpassword = () => {
       const value = snapshot.val();
       const email_ = value["email"];
 
-      const response = await axios.post(
+      await axios.post(
         "https://resetpasswordinstagram.vercel.app/resetpassword",
         {
           username: userName,
